@@ -35,7 +35,7 @@ module.exports = {
       },
       isMinted: {
         type: Sequelize.BOOLEAN,
-        defaultValue:true
+        defaultValue:false
       },
       createdAt: {
         allowNull: false,

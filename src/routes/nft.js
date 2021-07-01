@@ -2,7 +2,8 @@ const router = require("express").Router();
 
 const {
     create_nft,
-    get_nft
+    get_nft,
+    mint
 
 } = require("../controller/nft");
 router.post(
@@ -14,6 +15,11 @@ router.post(
 router.get(
     "/metadata/:id",
     get_nft
+);
+
+router.put(
+  "/mint/:id",
+  mint
 );
 
 
