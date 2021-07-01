@@ -14,7 +14,7 @@ router.post(
 );
 
 router.put(
-    "/update-nft",auth,
+    "/update-nft/:token_id",auth,
     update_nft
 );
 

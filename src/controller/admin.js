@@ -70,21 +70,31 @@ try {
 
     })
   }
-  
-  const {id}= req.params;
-  const params = Object.keys(req.body);
+   
+  const {token_id}= req.params;
+  const param = Object.keys(req.body);
       const updateBody = {};
       const allowedAttributes = ['name',"price","description","image","race","tier","class","primary_trait","secondary_trait"];
-      params.forEach((i)=>{
+      param.forEach((i)=>{
         if(req.body[i] && allowedAttributes.includes(i)){
-          update_body[i]=req.body[i];
+          updateBody[i]=req.body[i];
         }
       })
+      console.log('Update boduy :::',updateBody)
+      let token = await models.NFT.findByPk(token_id);
+      
+
+      if (!token) {
+        return res.json({
+          data: null,
+          error: "Token ID Invalid",
+          success: "false",
+        });
+      }
     
-      console.log("update_Obj : ",update_body)
-      user_update = await user.updateOne(updateBody);
+      let update = await token.update(updateBody);
       return res.json({
-        data: user_update,
+        data: update,
         error: null,
         success: true,
       });
