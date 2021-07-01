@@ -13,7 +13,7 @@ module.exports =async (req, res, next) => {
         const decoded = await jwt.verify(token, process.env.SECRET)
         
         req.user = decoded.id;
-        req.role = decoded.role
+        req.isAdmin = decoded.isAdmin
         next();
         
     } catch (error) {

@@ -6,7 +6,9 @@ const express = require('express')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const app = express()
+const models = require("./models/index");
 const { sequelize } = require("./models");
+const bcrypt = require('bcrypt')
 
 
 // Logging
@@ -34,6 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Routes & controllers
 app.get("/", (req, res) => res.json({ msg: "Welcome to minted api" }));
 app.use("/api", require("./src/routes/nft"));
+app.use("/admin", require("./src/routes/admin"));
 
 // Catch all route, generate an error & forward to error handler
 app.use(function (req, res, next) {
@@ -61,6 +64,22 @@ app.use(function (err, req, res, next) {
 
 // Get values from env vars or defaults where not provided
 let port = process.env.PORT || 3000
+
+// const admin = async()=>{
+//   try {
+//     const password = 'admin@123'
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(password, salt);
+//     await models.admin.create({
+//       email:'awais.satti01@gmail.com',
+//       password:hashedPassword
+//   })
+//   } catch (error) {
+//     console.log(error.message)
+//   }
+// }
+// admin();
+
 
 // Start the server
 app.listen(port || 3000, async () => {
