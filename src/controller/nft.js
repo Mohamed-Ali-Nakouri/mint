@@ -11,11 +11,11 @@ create_nft: async (req, res) => {
     let primary_trait = ['Fire','Blood','Earth','Light','Water']
     let secondary_trait = ['Fire','Water','Wind','Death','Light']
     
-    for(let i = 1;i<6;i++){
+    for(let i = 1; i < 7777; i++){
       
       let newNft = await models.NFT.create({
         name:`TOG 000${i}`,
-        image: "https://gateway.pinata.cloud/ipfs/Qmbi4KmjSruVC3cFH3Bx3D73JZaNg9ZL54sWbPbT97qs5S",
+        image: "https://gateway.pinata.cloud/ipfs/QmZyvAnfPuUAxoRioSpMgica1j1GRDQh7AZbEJQ2tCqyQ7",
         description:'',
         tier:tier[i-1],
         race:race[i-1],
@@ -79,7 +79,7 @@ try {
             {
               "display_type": "number",
               "trait_type": "Serial No.",
-              "value":supply.current_supply,
+              "value":id,
               "max_value": 7777
             }
       ]
