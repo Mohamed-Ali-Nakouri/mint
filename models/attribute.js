@@ -3,26 +3,22 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class NFT extends Model {
+  class attribute extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      NFT.hasMany(models.attribute)
-      models.attribute.belongsTo(NFT);
-      
+      // define association here
     }
   };
-  NFT.init({
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    image: DataTypes.STRING,
-    isMinted: DataTypes.BOOLEAN
+  attribute.init({
+    attribute_name: DataTypes.STRING,
+    attribute_value: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'NFT',
+    modelName: 'attribute',
   });
-  return NFT;
+  return attribute;
 };

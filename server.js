@@ -44,6 +44,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.get("/", (req, res) => res.json({ msg: "Welcome to minted api" }));
 app.use("/api", require("./src/routes/nft"));
 app.use("/admin", require("./src/routes/admin"));
+app.use("/api/attribute", require("./src/routes/attributes"));
+
 
 // Catch all route, generate an error & forward to error handler
 app.use(function (req, res, next) {
@@ -89,7 +91,7 @@ let port = process.env.PORT || 3000
 app.listen(port || 3000, async () => {
   console.log(`Server Started on port ${port}`);
   await sequelize.authenticate();
-  //await sequelize.sync({force:true , alter: true});
+  // await sequelize.sync({force:true , alter: true});
   console.log("DB connected");
 });
 

@@ -1,26 +1,18 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('NFTs', {
+    await queryInterface.createTable('attributes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      attribute_name: {
         type: Sequelize.STRING
       },
-      description: {
-        allowNull: true,
+      attribute_value: {
         type: Sequelize.STRING
-      },
-      image: {
-        type: Sequelize.STRING
-      },
-      isMinted: {
-        type: Sequelize.BOOLEAN,
-        defaultValue:false
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +25,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('NFTs');
+    await queryInterface.dropTable('attributes');
   }
 };
