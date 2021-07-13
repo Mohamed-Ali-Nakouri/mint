@@ -5,13 +5,13 @@ module.exports = {
 create_nft: async (req, res) => {
     try {
     
-    let tier = ['Immortal','Peasant','God','Knight','Demi-God']
-    let race = ['Human','Xor','Human','Undead','Orc']
-    let clas = ['Marksman','Mage','Priest','Shaman','Paladin']
-    let primary_trait = ['Fire','Blood','Earth','Light','Water']
-    let secoundary_trait = ['Fire','Water','Wind','Death','Light']
+    // let tier = ['Immortal','Peasant','God','Knight','Demi-God']
+    // let race = ['Human','Xor','Human','Undead','Orc']
+    // let clas = ['Marksman','Mage','Priest','Shaman','Paladin']
+    // let primary_trait = ['Fire','Blood','Earth','Light','Water']
+    // let secoundary_trait = ['Fire','Water','Wind','Death','Light']
     
-    for(let i = 1;i<6;i++){
+    for(let i = 1; i < 7777; i++){
       
       let newNft = await models.NFT.create({
         name:`TOG 000${i}`,
@@ -79,7 +79,7 @@ try {
             {
               "display_type": "number",
               "trait_type": "Serial No.",
-              "value":supply.current_supply,
+              "value":id,
               "max_value": 7777
             }
       ]
