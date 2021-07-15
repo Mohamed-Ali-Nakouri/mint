@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       current_supply: {
+        allowNull:false,
         type: Sequelize.INTEGER,
         defaultValue:0
       },

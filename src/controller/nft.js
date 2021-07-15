@@ -11,7 +11,7 @@ create_nft: async (req, res) => {
     // let primary_trait = ['Fire','Blood','Earth','Light','Water']
     // let secoundary_trait = ['Fire','Water','Wind','Death','Light']
     
-    for(let i = 1; i < 7777; i++){
+    for(let i = 1; i < 4; i++){
       
       let newNft = await models.NFT.create({
         name:`TOG 000${i}`,
@@ -45,7 +45,6 @@ create_nft: async (req, res) => {
 
 get_nft: async (req, res) => {
 try {
-    let supply
     const {id} = req.params
     const nft = await models.NFT.findByPk(id)
 
@@ -64,25 +63,19 @@ try {
             success: "false",
         });
     }
-    supply  = await models.Supply.findByPk(1);
+    const attributes = await models.attribute.findAll({
+      where:{
+        NFTId:nft.id
+      },
+      attributes: ['attribute_name', 'attribute_value']
+    })
    
     const resObj = {
       name:nft.name,
       description:nft.description,
       image:nft.image,
-      attributes:[
-            {"trait_type":"Race","value":`${nft.race}`},
-            {"trait_type":"Tier","value":`${nft.tier}`},
-            {"trait_type":"Class","value":`${nft.class}`},
-            {"trait_type":"Primary Trait","value":`${nft.primary_trait}`},
-            {"trait_type":"Secondary Trait","value":`${nft.secondary_trait}`},
-            {
-              "display_type": "number",
-              "trait_type": "Serial No.",
-              "value":id,
-              "max_value": 7777
-            }
-      ]
+      Attributes:attributes
+      
 
 
     }
@@ -110,7 +103,9 @@ mint: async (req, res) => {
       )
       const supply  = await models.Supply.findByPk(1);
       if(!supply){
-        await models.Supply.create()
+        await models.Supply.create({
+          current_supply:0
+        })
       }
       await models.Supply.increment({current_supply:+1},{where:{id:1}})
 
@@ -132,3 +127,20 @@ mint: async (req, res) => {
   }
   },
 }
+
+
+
+
+// attributes:[
+//   {"trait_type":"Race","value":`${nft.race}`},
+//   {"trait_type":"Tier","value":`${nft.tier}`},
+//   {"trait_type":"Class","value":`${nft.class}`},
+//   {"trait_type":"Primary Trait","value":`${nft.primary_trait}`},
+//   {"trait_type":"Secondary Trait","value":`${nft.secondary_trait}`},
+//   {
+//     "display_type": "number",
+//     "trait_type": "Serial No.",
+//     "value":id,
+//     "max_value": 7777
+//   }
+// ]
