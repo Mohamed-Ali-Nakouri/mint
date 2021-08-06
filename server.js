@@ -9,7 +9,8 @@ const app = express()
 const models = require("./models/index");
 const { sequelize } = require("./models");
 const bcrypt = require('bcrypt')
-
+const errorHandler = require('./src/middleware/errorHandler')
+const path = require("path");
 
 // Logging
 app.use(logger('dev'))
@@ -39,12 +40,13 @@ app.use(helmet());
 // Parsing middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
+app.use(express.static(path.join(__dirname, "../data")));
 // Routes & controllers
-app.get("/", (req, res) => res.json({ msg: "Welcome to minted api" }));
+app.get("/", (req, res) => res.json({ msg: "Welcome to WigzWaxTest api" }));
 app.use("/api", require("./src/routes/nft"));
 app.use("/admin", require("./src/routes/admin"));
-app.use("/api/attribute", require("./src/routes/attributes"));
+///app.use("/api/attribute", require("./src/routes/attributes"));
+
 
 
 // Catch all route, generate an error & forward to error handler
@@ -56,17 +58,19 @@ app.use(function (req, res, next) {
   next(err)
 })
 
-// Error handler
-app.use(function (err, req, res, next) {
-  console.error(`### ERROR: ${err.message}`)
+app.use(errorHandler)
+
+// // Error handler
+// app.use(function (err, req, res, next) {
+//   console.error(`### ERROR: ${err.message}`)
   
-  res.status(err.status || 500)
-  res.json({
-    title: 'Error',
-    message: err.message,
-    error: err,
-  })
-})
+//   res.status(err.status || 500)
+//   res.json({
+//     title: 'Error',
+//     message: err.message,
+//     error: err,
+//   })
+// })
 
 // Get values from env vars or defaults where not provided
 let port = process.env.PORT || 3000

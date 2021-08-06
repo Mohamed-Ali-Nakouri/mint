@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "awais",
-    "password": "sattikiller01",
-    "database": "old_guards",
-    "host": "127.0.0.1",
+    "username": "jshippinnquztv",
+    "password": "a318e2a77385725ba5247701eab2b842da663c71e96bead54aae4c6795ad0c40",
+    "database": "dapq5as8q1qo3e",
+    "host": "ec2-3-233-100-43.compute-1.amazonaws.com",
     "dialect": "postgres"
   },
   "test": {

@@ -10,17 +10,25 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      NFT.hasMany(models.attribute)
-      models.attribute.belongsTo(NFT);
       
     }
   };
   NFT.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING,
+    background: DataTypes.STRING,
+    body: DataTypes.STRING,
+    mouth: DataTypes.STRING,
+    eyes: DataTypes.STRING,
+    head_gear: DataTypes.STRING,
+    tokenId: DataTypes.STRING,
     image: DataTypes.STRING,
     isMinted: DataTypes.BOOLEAN
-  }, {
+  }, { hooks: {
+    beforeCreate: (nft) => {
+      nft.isMinted = false
+    },
+  },
     sequelize,
     modelName: 'NFT',
   });

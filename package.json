@@ -9,15 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/The-Lost-Gods/backend.git"
+    "url": "git+https://github.com/CryptoKiwis/wigzwaxtest"
   },
-  "author": "Awais Ali",
-  "license": "ISC",
+  "author": "WigzWaxTest",
+  "license": "WWT",
   "bugs": {
-    "url": "https://github.com/The-Lost-Gods/backend/issues"
+    "url": "https://github.com/CryptoKiwis/wigzwaxtest"
   },
-  "homepage": "https://github.com/The-Lost-Gods/backend#readme",
+  "homepage": "https://github.com/CryptoKiwis/wigzwaxtest",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -26,6 +27,7 @@
     "helmet": "^4.6.0",
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
+    "localtunnel": "^2.0.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",

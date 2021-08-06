@@ -15,6 +15,30 @@ module.exports = {
         allowNull: true,
         type: Sequelize.STRING
       },
+      background: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      body: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      mouth: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      tokenId: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      eyes: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      head_gear: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       image: {
         type: Sequelize.STRING
       },
