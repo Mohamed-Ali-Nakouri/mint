@@ -14,6 +14,7 @@ module.exports =async (req, res, next) => {
            
             console.log("token::",token)
             console.log("process :::::::::",process.env.SECRET)
+            console.log(process.env.DATABASE_URL);
             const decoded = await jwt.verify(token, process.env.SECRET)
             
             req.user = decoded.id;
