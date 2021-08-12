@@ -1,11 +1,14 @@
 { 
   "production": {
-  "username": "ehcouqfqxgnlvc",
-  "password": "b49fa43b1762c365b0e915f8d3067f2fa45385f7aedb5fee55f11929bf44c1eb",
-  "database": "d8mncij35b2sfl",
-  "host": "ec2-52-72-125-94.compute-1.amazonaws.com",
-  "ssl": true,
+  "username": "xjllebzurouzov",
+  "password": "4af18387a63df6b0ce3f154abdcf66fae9f680c5e757cecc19e1be8d226ad459",
+  "database": "d9dn15mdacnr96",
+  "host": "ec2-44-194-68-175.compute-1.amazonaws.com",
   "dialect": "postgres",
-  "rejectUnauthorized": "false" 
+  "dialectOptions": {
+    "ssl": {"require":true,
+      "rejectUnauthorized": false
+  }
+}
   }
 }
