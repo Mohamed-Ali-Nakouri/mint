@@ -34,5 +34,6 @@
     "pg": "^8.6.0",
     "sequelize": "^6.6.4",
     "sequelize-cli": "^6.2.0"
-  }
+  },
+  "heroku-run-build-script": true
 }

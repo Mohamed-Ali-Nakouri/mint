@@ -1,26 +1,10 @@
-{
-  "development": {
-    "username": "wigzwaxtest",
-    "password": "Foolish!321",
-    "database": "wigzwaxtest_db",
-    "host": "127.0.0.1",
-    "ssl": true,
-    "dialect": "postgres",
-    "rejectUnauthorized": "false"
-    },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
+{ 
   "production": {
-  "username": "sbzmgwcxloynot",
-    "password": "d2234f6fbedaf35e42102c8ad39cc2276443ca7b9877467c7b843b3cbf026c24",
-    "database": "d43b7nv4kbu13h",
-    "host": "ec2-52-72-125-94.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "rejectUnauthorized": "false"
+  "username": "wsatipiifxmhis",
+  "password": "5c85b1c62bf4e1f84878d0c31eb4f99aa4e07a24f888fcefe25f06a9dd7573ce",
+  "database": "dcafuaoc7va429",
+  "host": "ec2-54-205-232-84.compute-1.amazonaws.com",
+  "ssl": true,
+  "dialect": "postgres"
   }
-  }
+}
