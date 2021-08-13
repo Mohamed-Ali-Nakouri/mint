@@ -1,9 +1,9 @@
 { 
   "production": {
-  "username": "xjllebzurouzov",
-  "password": "4af18387a63df6b0ce3f154abdcf66fae9f680c5e757cecc19e1be8d226ad459",
-  "database": "d9dn15mdacnr96",
-  "host": "ec2-44-194-68-175.compute-1.amazonaws.com",
+  "username": "u3rv4si0edtta2",
+  "password": "p33fe06bc4d9ddc400b40669095b0fbe79848286ff06473b39a63fcf92f6d68a1",
+  "database": "d26d846dvagmr",
+  "host": "ec2-44-196-254-200.compute-1.amazonaws.com",
   "dialect": "postgres",
   "dialectOptions": {
     "ssl": {"require":true,
