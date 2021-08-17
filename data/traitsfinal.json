@@ -2,6 +2,17 @@
     {
         "Name": "WigzWaxTest",
         "Description": "WigzWaxTest Description Testing Input",
+        "Background": "Background8",
+        "Body": "Body6",
+        "Mouth": "Mouth9",
+        "Eyes": "Eyes7",
+        "Head_Gear": "Hat25",
+        "tokenId": 0,
+        "imagesIPFS": "QmPLEahVhRaQA6zNLKdSikfVRyF1qhWnpaKM7suQVU2MG2"
+    },
+    {
+        "Name": "WigzWaxTest",
+        "Description": "WigzWaxTest Description Testing Input",
         "Background": "Background7",
         "Body": "Body2",
         "Mouth": "Mouth3",
@@ -10987,16 +10998,5 @@
         "Head_Gear": "Hat23",
         "tokenId": 999,
         "imagesIPFS": "QmXRmmP1AhUiWKpoG6sxC7sTjhMPLKHayvUoP67qcBHF6W"
-    },
-    {
-        "Name": "WigzWaxTest",
-        "Description": "WigzWaxTest Description Testing Input",
-        "Background": "Background8",
-        "Body": "Body6",
-        "Mouth": "Mouth9",
-        "Eyes": "Eyes7",
-        "Head_Gear": "Hat25",
-        "tokenId": 1000,
-        "imagesIPFS": "QmPLEahVhRaQA6zNLKdSikfVRyF1qhWnpaKM7suQVU2MG2"
     }
 ]

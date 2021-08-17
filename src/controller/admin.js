@@ -43,7 +43,7 @@ module.exports = {
     try {
       const { isAdmin } = req;
       if (!isAdmin) {
-        throw new Error("Un-authorized or disabled accountt");
+        throw new Error("Un-authorized or disabled account");
       }
 
       const { token_id } = req.params;
@@ -67,7 +67,7 @@ module.exports = {
           throw new Error("Please provide Valid fields to update");
         }
       });
-      console.log("Update boduy :::", updateBody);
+      console.log("Update body :::", updateBody);
       let token = await models.NFT.findByPk(token_id);
 
       if (!token) {
