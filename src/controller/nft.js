@@ -52,7 +52,7 @@ module.exports = {
       if (!nft.isMinted) {
         throw new Error("Token not minted");
       }
-
+      console.log(nft);
       // }
       const resObj = {
         name: nft.name,
@@ -74,6 +74,54 @@ module.exports = {
       };
 
       return res.json(resObj);
+    } catch (error) {
+      console.log("server error", error.message);
+      next(error);
+    }
+  },
+  get_nft_all: async (req, res, next) => {
+    try {
+      // console.log("id ?????????",id)
+      // console.log("type of  ",typeof(id))
+      // const n=Number(id)
+      // console.log("type of  ",typeof(id))
+      const nft = await models.NFT.findAndCountAll({
+        limit: 10
+      });
+      // console.log(nft);
+      if (!nft) {
+        throw new Error("Token ID invalid");
+      }
+
+      // if (nft.isMinted) {
+      //   throw new Error("Token not minted");
+      // }
+      // console.log(nft);
+      // }
+        var resObjarr = [];
+        for (var i = 0; i < nft.rows.length; i++) {
+           resObj = {
+            name: nft.rows[i].name,
+            description: nft.rows[i].description,
+            image: `https://gateway.pinata.cloud/ipfs/${nft.rows[i].image}`,
+            attributes: [
+              { trait_type: "background", value: `${nft.rows[i].background}` },
+              { trait_type: "body", value: `${nft.rows[i].body}` },
+              { trait_type: "mouth", value: `${nft.rows[i].mouth}` },
+              { trait_type: "eyes", value: `${nft.rows[i].eyes}` },
+              { trait_type: "tokenId", value: `${nft.rows[i].tokenId}` },
+              {
+                display_type: "number",
+                trait_type: "Serial No.",
+                value: nft.rows[i].id,
+                max_value: 1000,
+              },
+            ],
+          };
+          resObjarr.push(resObj);
+      }
+      console.log(JSON.stringify(resObjarr))
+      return res.json(resObjarr);
     } catch (error) {
       console.log("server error", error.message);
       next(error);

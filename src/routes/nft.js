@@ -5,6 +5,7 @@ const auth=require("../middleware/auth")
 const {
     create_nft,
     get_nft,
+    get_nft_all,
     mint
 
 } = require("../controller/nft");
@@ -17,6 +18,11 @@ router.post(
 router.get(
     "/metadata/:id",
     get_nft
+);
+
+router.get(
+    "/metadata",
+    get_nft_all
 );
 
 router.put(

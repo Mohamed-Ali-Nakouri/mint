@@ -73,7 +73,7 @@ app.use(errorHandler)
 // })
 
 // Get values from env vars or defaults where not provided
-let port = process.env.PORT || 3000
+let port = process.env.PORT || 5000
 
 // const admin = async()=>{
 //   try {
@@ -92,7 +92,7 @@ let port = process.env.PORT || 3000
 
 
 // Start the server
-app.listen(port || 3000, async () => {
+app.listen(port || 5000, async () => {
   console.log(`Server Started on port ${port}`);
   await sequelize.authenticate();
   // await sequelize.sync({force:true , alter: true});
