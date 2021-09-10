@@ -12,17 +12,21 @@ module.exports = {
       console.log("ya data ha final ??", parsed);
       parsed.forEach(async (item) => {
         // return res.json(item)
-        let newNft = await models.NFT.create({
-          name: item.Name,
-          description: item.Description,
-          background: item.Background,
-          body: item.Body,
-          mouth: item.Mouth,
-          eyes: item.Eyes,
-          head_gear: item.Head_Gear,
-          tokenId: item.tokenId,
-          image: item.imagesIPFS,
-        });
+        const data = parsed.map(item => {
+          return models.NFT.create({
+             name: item.Name,
+             description: item.Description,
+             background: item.Background,
+             body: item.Body,
+             mouth: item.Mouth,
+             eyes: item.Eyes,
+             head_gear: item.Head_Gear,
+             tokenId: item.tokenId,
+             image: item.imagesIPFS,
+           })
+       })
+   
+       const results = await Promise.all(data)
       });
 
       return res.json({
