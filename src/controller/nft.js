@@ -86,7 +86,7 @@ module.exports = {
       // const n=Number(id)
       // console.log("type of  ",typeof(id))
       const nft = await models.NFT.findAndCountAll({
-        limit: 1000
+        limit: 10
       });
       // console.log(nft);
       if (!nft) {
