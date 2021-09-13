@@ -9,10 +9,11 @@ module.exports = {
       const readCards = fs.readFileSync(dir, "utf8");
 
       const parsed = JSON.parse(readCards);
-      console.log("ya data ha final ??", parsed);
+      //console.log("ya data ha final ??", parsed);
       parsed.forEach(async (item) => {
         // return res.json(item)
         const data = parsed.map(item => {
+          
           return models.NFT.create({
              name: item.Name,
              description: item.Description,
@@ -48,7 +49,7 @@ module.exports = {
       // const n=Number(id)
       // console.log("type of  ",typeof(id))
       const nft = await models.NFT.findByPk(id);
-
+    
       if (!nft) {
         throw new Error("Token ID invalid");
       }
@@ -56,7 +57,7 @@ module.exports = {
       if (!nft.isMinted) {
         throw new Error("Token not minted");
       }
-      console.log(nft);
+      //console.log(nft);
       // }
       const resObj = {
         name: nft.name,
@@ -133,10 +134,44 @@ module.exports = {
   },
   mint: async (req, res, next) => {
     try {
-      const { id } = req.params;
-      const updated = await models.NFT.findByPk(id);
+     const { id } = req.params;
+     let idList=[];
 
-      if (!updated) {
+     let jj = await models.NFT.findAll({
+      where: {isMinted : false},
+      limit: id,
+      order: [['id', 'ASC']]
+    });
+    
+    
+    jj.forEach(async (item) => {
+            idList.push(item.id);
+    });
+   
+  console.log(idList)
+    
+
+   /*  models.NFT.update(
+      {isMinted: true},
+      { 
+          where: {id: idList},
+          order: [['id', 'ASC']]
+  
+      }).then(function () {
+        return res.json({
+          data: "Token(s) minted successfully",
+          error: null,
+          success: true,
+        });
+         // res.sendStatus(200);
+
+      });*/
+
+     /* await models.NFT.destroy({
+        truncate: true
+      });
+
+   /*   if (!updated) {
         throw new Error("NFT ID invalid");
       }
       if (updated.isMinted) {
@@ -149,7 +184,7 @@ module.exports = {
         data: "Token minted successfully",
         error: null,
         success: true,
-      });
+      });*/
     } catch (error) {
       console.log("server error", error.message);
       next(error);

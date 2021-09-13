@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   NFT.init({
     id: {
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true
     },
     name: DataTypes.STRING,
